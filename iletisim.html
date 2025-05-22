@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CECCİLLİ - İletişim</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="container header-container">
+      <h1 class="logo">CECCİLLİ</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Anasayfa</a></li>
+          <li><a href="rezervasyon.html">Rezervasyon</a></li>
+          <li><a href="kampanyalar.html">Kampanyalar</a></li>
+          <li><a href="oteller.html">Oteller</a></li>
+          <li><a href="turlar.html">Turlar</a></li>
+          <li><a href="arackiralama.html">Araç Kiralama</a></li>
+          <li><a href="ozelaktiviteler.html">Özel Aktiviteler</a></li>
+          <li><a href="iletisim.html" class="active">İletişim</a></li>
+          <li><a href="giris-kayit.html">Giriş-Kayıt</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="contact-hero">
+      <div class="container">
+        <h2>Bizimle İletişime Geçin</h2>
+        <p>Sorularınız veya önerileriniz için formu doldurabilirsiniz.</p>
+      </div>
+    </section>
+
+    <section class="contact-info container">
+      <h3>İletişim Bilgileri</h3>
+      <p><strong>Adres:</strong> Atatürk Caddesi No:123, İstanbul, Türkiye</p>
+      <p><strong>Telefon:</strong> +90 212 123 45 67</p>
+      <p><strong>E-posta:</strong> info@ceccilli.com</p>
+    </section>
+
+    <section class="contact-form-section container">
+      <h3>Bize Mesaj Gönderin</h3>
+      <form id="contact-form" novalidate>
+        <div class="form-group">
+          <label for="name">Ad Soyad:</label>
+          <input type="text" id="name" name="name" placeholder="Adınızı ve soyadınızı giriniz" required />
+        </div>
+        <div class="form-group">
+          <label for="email">E-posta:</label>
+          <input type="email" id="email" name="email" placeholder="E-posta adresiniz" required />
+        </div>
+        <div class="form-group">
+          <label for="message">Mesajınız:</label>
+          <textarea id="message" name="message" rows="5" placeholder="Mesajınızı buraya yazınız" required></textarea>
+        </div>
+        <button type="submit" class="btn-primary">Gönder</button>
+      </form>
+      <div id="form-status" class="form-status" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-container">
+      <div class="footer-info">
+        <p>© 2024 CECCİLLİ Tatil. Tüm hakları saklıdır.</p>
+        <p>İletişim: info@ceccilli.com | +90 123 456 7890</p>
+      </div>
+      <div class="social-links">
+        <a href="#" aria-label="Facebook">Fb</a>
+        <a href="#" aria-label="Twitter">Tw</a>
+        <a href="#" aria-label="Instagram">Ig</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="iletisim.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

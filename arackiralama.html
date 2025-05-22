@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CECCİLLİ - Araç Kiralama</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="container header-container">
+      <h1 class="logo">CECCİLLİ</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Anasayfa</a></li>
+          <li><a href="rezervasyon.html">Rezervasyon</a></li>
+          <li><a href="kampanyalar.html">Kampanyalar</a></li>
+          <li><a href="oteller.html">Oteller</a></li>
+          <li><a href="turlar.html">Turlar</a></li>
+          <li><a href="arackiralama.html" class="active">Araç Kiralama</a></li>
+          <li><a href="ozelaktiviteler.html">Özel Aktiviteler</a></li>
+          <li><a href="iletisim.html">İletişim</a></li>
+          <li><a href="giris-kayit.html">Giriş-Kayıt</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="car-rental-hero">
+      <div class="container">
+        <h2>Araç Kiralama Hizmetlerimiz</h2>
+        <p>Konforlu ve ekonomik araç seçenekleriyle tatilinizi planlayın.</p>
+      </div>
+    </section>
+
+    <section class="car-select-section container">
+      <form id="car-select-form">
+        <label for="car-type-select">Araç Tipi Seçin:</label>
+        <select id="car-type-select" name="carType" required>
+          <option value="">Araç tipi seçiniz</option>
+          <option value="ekonomik-sedan">Ekonomik Sedan</option>
+          <option value="suv-4x4">SUV 4x4</option>
+          <option value="luks-limuzin">Lüks Limuzin</option>
+          <option value="minivan">Minivan</option>
+          <option value="elektrikli">Elektrikli Araç</option>
+          <option value="motosiklet">Motosiklet</option>
+       
+        </select>
+        <button type="submit" class="btn-primary">Aracı Kirala</button>
+      </form>
+    </section>
+
+    <section class="tours-list container">
+      <article class="tour-card">
+        <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=600&q=60" alt="Ekonomik Sedan" />
+        <div class="tour-content">
+          <h3>Ekonomik Sedan</h3>
+          <p>Yakıt tasarrufu yüksek, şehir içi kullanım için ideal.</p>
+          <p class="car-price">Günlük Fiyat: 250 ₺</p>
+          <a href="rezervasyon.html" class="btn-primary">Hemen Kirala</a>
+        </div>
+      </article>
+
+      <article class="tour-card">
+        <img src="araba1.jpg" alt="SUV Araç" />
+        <div class="tour-content">
+            <h3>SPOR ARAÇLAR</h3>
+          <p>Geniş iç hacim, yol koşullarına uygun dört çekiş sistemi.</p>
+          <p class="car-price">Günlük Fiyat: 450 ₺</p>
+          <a href="rezervasyon.html" class="btn-primary">Hemen Kirala</a>
+        </div>
+      </article>
+
+      <article class="tour-card">
+        <img src="limuzin.png" alt="Lüks Limuzin" />
+        <div class="tour-content">
+          <h3>Lüks Limuzin</h3>
+          <p>Konfor ve şıklığın birleşimi, özel günler için mükemmel seçim.</p>
+          <p class="car-price">Günlük Fiyat: 1200 ₺</p>
+          <a href="rezervasyon.html" class="btn-primary">Hemen Kirala</a>
+        </div>
+      </article>
+
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-container">
+      <div class="footer-info">
+        <p>© 2024 CECCİLLİ Tatil. Tüm hakları saklıdır.</p>
+        <p>İletişim: info@ceccilli.com | +90 123 456 7890</p>
+      </div>
+      <div class="social-links">
+        <a href="#" aria-label="Facebook">Fb</a>
+        <a href="#" aria-label="Twitter">Tw</a>
+        <a href="#" aria-label="Instagram">Ig</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
+

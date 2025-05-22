@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CECCİLLİ - Rezervasyon</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="container header-container">
+      <h1 class="logo">CECCİLLİ</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Anasayfa</a></li>
+          <li><a href="rezervasyon.html" class="active">Rezervasyon</a></li>
+          <li><a href="kampanyalar.html">Kampanyalar</a></li>
+          <li><a href="oteller.html">Oteller</a></li>
+          <li><a href="turlar.html">Turlar</a></li>
+          <li><a href="arackiralama.html">Araç Kiralama</a></li>
+          <li><a href="ozelaktiviteler.html">Özel Aktiviteler</a></li>
+          <li><a href="iletisim.html">İletişim</a></li>
+          <li><a href="giris-kayit.html">Giriş-Kayıt</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="reservation-hero">
+      <div class="container">
+        <h2>Rezervasyonunuzu Hemen Yapın</h2>
+        <p>Konforlu tatilinizi planlamak için aşağıdaki formu doldurun.</p>
+      </div>
+    </section>
+
+    <section class="reservation-form-section">
+      <div class="container">
+        <form id="reservation-form" novalidate>
+          <div class="form-group">
+            <label for="fullName">Ad Soyad:</label>
+            <input type="text" id="fullName" name="fullName" placeholder="Adınızı ve soyadınızı giriniz" required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">E-posta Adresi:</label>
+            <input type="email" id="email" name="email" placeholder="E-posta adresiniz" required />
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Telefon Numarası:</label>
+            <input type="tel" id="phone" name="phone" placeholder="Telefon numaranızı giriniz" pattern="\\+?\\d{10,15}" />
+          </div>
+
+          <div class="form-group">
+            <label for="checkin">Giriş Tarihi:</label>
+            <input type="date" id="checkin" name="checkin" required />
+          </div>
+
+          <div class="form-group">
+            <label for="checkout">Çıkış Tarihi:</label>
+            <input type="date" id="checkout" name="checkout" required />
+          </div>
+
+          <div class="form-group">
+            <label for="accommodationType">Konaklama Türü:</label>
+            <select id="accommodationType" name="accommodationType" required>
+              <option value="">Seçiniz</option>
+              <option value="otel">Otel</option>
+              <option value="tatil_koyu">Tatil Köyü</option>
+              <option value="apart">Apart</option>
+              <option value="villa">Villa</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="numberOfGuests">Kişi Sayısı:</label>
+            <input type="number" id="numberOfGuests" name="numberOfGuests" min="1" max="20" value="1" required />
+          </div>
+
+          <div class="form-group">
+            <label for="specialRequests">Özel İstekler:</label>
+            <textarea id="specialRequests" name="specialRequests" rows="4" placeholder="Özel isteklerinizi buraya yazabilirsiniz"></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary">Rezervasyonu Gönder</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-container">
+      <div class="footer-info">
+        <p>© 2024 CECCİLLİ Tatil. Tüm hakları saklıdır.</p>
+        <p>İletişim: info@ceccilli.com | +90 123 456 7890</p>
+      </div>
+      <div class="social-links">
+        <a href="#" aria-label="Facebook">Fb</a>
+        <a href="#" aria-label="Twitter">Tw</a>
+        <a href="#" aria-label="Instagram">Ig</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="rezervasyon.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

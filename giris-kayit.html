@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CECCİLLİ - Giriş / Kayıt</title>
+  <link rel="stylesheet" href="styles.css" />
+ 
+</head>
+<body>
+  <header>
+    <div class="container header-container">
+      <h1 class="logo">CECCİLLİ</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Anasayfa</a></li>
+          <li><a href="rezervasyon.html">Rezervasyon</a></li>
+          <li><a href="kampanyalar.html">Kampanyalar</a></li>
+          <li><a href="oteller.html">Oteller</a></li>
+          <li><a href="turlar.html">Turlar</a></li>
+          <li><a href="arackiralama.html">Araç Kiralama</a></li>
+          <li><a href="ozelaktiviteler.html">Özel Aktiviteler</a></li>
+          <li><a href="iletisim.html">İletişim</a></li>
+          <li><a href="giris-kayit.html" class="active">Giriş-Kayıt</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="auth-section container" aria-label="Kullanıcı Giriş ve Kayıt">
+      <div class="tabs" role="tablist">
+        <button class="tab-btn active" data-tab="login" role="tab" aria-selected="true" aria-controls="login" id="tab-login">Giriş Yap</button>
+        <button class="tab-btn" data-tab="register" role="tab" aria-selected="false" aria-controls="register" id="tab-register">Kayıt Ol</button>
+      </div>
+
+      <div class="tab-content active" id="login" role="tabpanel" aria-labelledby="tab-login" tabindex="0">
+        <form id="login-form" method="POST" novalidate autocomplete="off" spellcheck="false" >
+          <label for="login-email">E-posta:</label>
+          <input type="email" id="login-email" name="email" placeholder="E-posta adresiniz" required aria-required="true" autocomplete="username" />
+
+          <label for="login-password">Şifre:</label>
+          <input type="password" id="login-password" name="password" placeholder="Şifreniz" required aria-required="true" autocomplete="current-password" />
+
+          <button type="submit" class="btn-primary">Giriş Yap</button>
+          <div id="login-status" class="form-status" role="alert" aria-live="assertive"></div>
+        </form>
+      </div>
+
+      <div class="tab-content" id="register" role="tabpanel" aria-labelledby="tab-register" tabindex="0">
+        <form id="register-form" method="POST" novalidate autocomplete="off" spellcheck="false" >
+          <label for="register-name">Ad Soyad:</label>
+          <input type="text" id="register-name" name="name" placeholder="Adınız ve soyadınız" required aria-required="true" autocomplete="name" />
+
+          <label for="register-email">E-posta:</label>
+          <input type="email" id="register-email" name="email" placeholder="E-posta adresiniz" required aria-required="true" autocomplete="email" />
+
+          <label for="register-password">Şifre:</label>
+          <input type="password" id="register-password" name="password" placeholder="Şifreniz" required aria-required="true" autocomplete="new-password" />
+
+          <label for="register-password-confirm">Şifre Tekrar:</label>
+          <input type="password" id="register-password-confirm" name="passwordConfirm" placeholder="Şifrenizi tekrar giriniz" required aria-required="true" autocomplete="new-password" />
+
+          <button type="submit" class="btn-secondary">Kayıt Ol</button>
+          <div id="register-status" class="form-status" role="alert" aria-live="assertive"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-container">
+      <div class="footer-info">
+        <p>© 2024 CECCİLLİ Tatil. Tüm hakları saklıdır.</p>
+        <p>İletişim: info@ceccilli.com | +90 123 456 7890</p>
+      </div>
+      <div class="social-links">
+        <a href="#" aria-label="Facebook">Fb</a>
+        <a href="#" aria-label="Twitter">Tw</a>
+        <a href="#" aria-label="Instagram">Ig</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const tabs = document.querySelectorAll('.tab-btn');
+      const contents = document.querySelectorAll('.tab-content');
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          tabs.forEach(t => {
+            t.classList.remove('active');
+            t.setAttribute('aria-selected', 'false');
+          });
+          contents.forEach(c => c.classList.remove('active'));
+          tab.classList.add('active');
+          tab.setAttribute('aria-selected', 'true');
+          document.getElementById(tab.dataset.tab).classList.add('active');
+          document.getElementById(tab.dataset.tab).focus();
+        });
+      });
+
+      const loginForm = document.getElementById('login-form');
+      const loginStatus = document.getElementById('login-status');
+      loginForm.addEventListener('submit', e => {
+        e.preventDefault();
+        const email = loginForm.email.value.trim();
+        const password = loginForm.password.value.trim();
+        if (!email || !password) {
+          loginStatus.textContent = 'Lütfen tüm alanları doldurun.';
+          loginStatus.style.color = 'red';
+          return;
+        }
+        loginStatus.textContent = 'Giriş başarılı (simülasyon).';
+        loginStatus.style.color = '#3caea3';
+        loginForm.reset();
+      });
+
+      const registerForm = document.getElementById('register-form');
+      const registerStatus = document.getElementById('register-status');
+      registerForm.addEventListener('submit', e => {
+        e.preventDefault();
+        const name = registerForm.name.value.trim();
+        const email = registerForm.email.value.trim();
+        const password = registerForm.password.value.trim();
+        const passwordConfirm = registerForm.passwordConfirm.value.trim();
+
+        if (!name || !email || !password || !passwordConfirm) {
+          registerStatus.textContent = 'Lütfen tüm alanları doldurun.';
+          registerStatus.style.color = 'red';
+          return;
+        }
+        if (password !== passwordConfirm) {
+          registerStatus.textContent = 'Şifreler eşleşmiyor.';
+          registerStatus.style.color = 'red';
+          return;
+        }
+        registerStatus.textContent = 'Kayıt işlemi başarılı (simülasyon).';
+        registerStatus.style.color = '#3caea3';
+        registerForm.reset();
+      });
+    });
+  </script>
+</body>
+</html>
+
+
+  <script src="giris-kayit.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

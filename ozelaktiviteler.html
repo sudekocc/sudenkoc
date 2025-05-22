@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CECCİLLİ - Özel Aktiviteler</title>
+  <link rel="stylesheet" href="styles.css" />
+  
+</head>
+<body>
+  <header>
+    <div class="container header-container">
+      <h1 class="logo">CECCİLLİ</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Anasayfa</a></li>
+          <li><a href="rezervasyon.html">Rezervasyon</a></li>
+          <li><a href="kampanyalar.html">Kampanyalar</a></li>
+          <li><a href="oteller.html">Oteller</a></li>
+          <li><a href="turlar.html">Turlar</a></li>
+          <li><a href="arackiralama.html">Araç Kiralama</a></li>
+          <li><a href="ozelaktiviteler.html" class="active">Özel Aktiviteler</a></li>
+          <li><a href="iletisim.html">İletişim</a></li>
+          <li><a href="giris-kayit.html">Giriş-Kayıt</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="special-activities-hero">
+      <div class="container">
+        <h2>Özel Aktivitelerimizle Tatilinizi Şekillendirin</h2>
+        <p>Size en uygun aktiviteleri keşfedin, planlayın ve hemen kayıt olun!</p>
+      </div>
+    </section>
+
+    <section class="character-test-section container">
+      <h3>Mini Karakter Testi</h3>
+      <form id="character-test-form">
+        <p>Boş zamanlarınızı nasıl değerlendirmeyi seversiniz?</p>
+        <label>
+          <input type="radio" name="preference" value="macera" required />
+          Macera dolu aktiviteler 
+        </label><br />
+        <label>
+          <input type="radio" name="preference" value="dogasever" />
+          Doğa ve sakinlik
+        </label><br />
+        <label>
+          <input type="radio" name="preference" value="kulturel" />
+          Kültürel ve keşif aktiviteleri 
+        </label><br />
+        <label>
+          <input type="radio" name="preference" value="aile" />
+          Aile ve çocuklar için uygun aktiviteler
+        </label><br />
+        <button type="submit" class="btn-primary">Aktivitemi Bul</button>
+      </form>
+      <div id="test-result" class="test-result" tabindex="0" aria-live="polite"></div>
+    </section>
+
+    <section class="recommended-activities container" style="display:none;">
+      <h3>Hoşunuza Gidebilecekler</h3>
+      <ul id="recommended-list" class="recommended-list"></ul>
+    </section>
+
+    <section class="activity-detail container" style="display:none;">
+      <h3 id="activity-name-title"></h3>
+      <img id="activity-image" src="" alt="" />
+      <p id="activity-description"></p>
+
+      <form id="date-planning-form" novalidate>
+        <h4>Tarih Planlama</h4>
+        <label for="start-date">Başlangıç Tarihi:</label>
+        <input type="date" id="start-date" name="startDate" required />
+
+        <label for="end-date">Bitiş Tarihi:</label>
+        <input type="date" id="end-date" name="endDate" required />
+
+        <button type="submit" class="btn-primary">Planı Kaydet</button>
+      </form>
+
+      <form id="registration-form" novalidate>
+        <h4>Aktivite Kayıt Formu</h4>
+        <label for="full-name">Ad Soyad:</label>
+        <input type="text" id="full-name" name="fullName" placeholder="Adınız ve soyadınız" required />
+
+        <label for="email">E-posta:</label>
+        <input type="email" id="email" name="email" placeholder="E-posta adresiniz" required />
+
+        <label for="phone">Telefon:</label>
+        <input type="tel" id="phone" name="phone" placeholder="Telefon numaranız" />
+
+        <button type="submit" class="btn-secondary">Kayıt Ol</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-container">
+      <div class="footer-info">
+        <p>© 2024 CECCİLLİ Tatil. Tüm hakları saklıdır.</p>
+        <p>İletişim: info@ceccilli.com | +90 123 456 7890</p>
+      </div>
+      <div class="social-links">
+        <a href="#" aria-label="Facebook">Fb</a>
+        <a href="#" aria-label="Twitter">Tw</a>
+        <a href="#" aria-label="Instagram">Ig</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  const activities = [
+    {
+      id: 'yamac-parasut',
+      category: 'macera',
+      name: 'Yamaç Paraşütü',
+      description: 'Adrenalin dolu yamaç paraşütü deneyimini yaşayın.',
+      image: 'parasut.jpg'
+    },
+    {
+      id: 'dalis-turu',
+      category: 'macera',
+      name: 'Scuba Dalış Turu',
+      description: 'Türkiye’nin en güzel dalış noktalarını keşfedin.',
+      image: 'scuba.jpg'
+    },
+    {
+      id: 'dogayuruyus',
+      category: 'dogasever',
+      name: 'Doğa Yürüyüşü',
+      description: 'Eşsiz doğa güzellikleri ile dolu yürüyüş rotaları.',
+      image: 'yuruyus.jpg'
+    },
+    {
+      id: 'kano-turu',
+      category: 'dogasever',
+      name: 'Kano Turu',
+      description: 'Nehirlerde kano turu ile huzurlu vakit geçirin.',
+      image: 'kano.png'
+    },
+    {
+      id: 'muzesi-gezi',
+      category: 'kulturel',
+      name: 'Müze Turu',
+      description: 'Tarih ve kültürle dolu rehberli müze gezisi.',
+      image: 'museum.jpg'
+    },
+    {
+      id: 'tarihi-tur',
+      category: 'kulturel',
+      name: 'Antik Kent Turu',
+      description: 'Eski şehirlerin tarihine yolculuk yapın.',
+      image: 'antik.jpg'
+    },
+    {
+      id: 'aile-piknik',
+      category: 'aile',
+      name: 'Aile Pikniği',
+      description: 'Çocuklar ve aileler için özel piknik aktiviteleri.',
+      image: 'https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=600&q=60'
+    },
+    {
+      id: 'cocuk-oyunlari',
+      category: 'aile',
+      name: 'Çocuk Oyun Alanı',
+      description: 'Eğlenceli ve güvenli çocuk oyun aktiviteleri.',
+      image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=60'
+    }
+  ];
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const testForm = document.getElementById('character-test-form');
+    const testResult = document.getElementById('test-result');
+    const recommendedSection = document.querySelector('.recommended-activities');
+    const recommendedList = document.getElementById('recommended-list');
+    const activityDetailSection = document.querySelector('.activity-detail');
+    const activityNameTitle = document.getElementById('activity-name-title');
+    const activityImage = document.getElementById('activity-image');
+    const activityDescription = document.getElementById('activity-description');
+
+    const dateForm = document.getElementById('date-planning-form');
+    const registrationForm = document.getElementById('registration-form');
+
+    recommendedSection.style.display = 'none';
+    activityDetailSection.style.display = 'none';
+
+    let selectedActivity = null;
+
+    testForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const preference = testForm.preference.value;
+      const filtered = activities.filter(a => a.category === preference);
+
+      if(filtered.length === 0) {
+        testResult.textContent = "Üzgünüz, size uygun aktivite bulunamadı.";
+        recommendedSection.style.display = 'none';
+        activityDetailSection.style.display = 'none';
+        return;
+      }
+
+      recommendedSection.style.display = 'block';
+      activityDetailSection.style.display = 'none';
+      testResult.textContent = '';
+
+      recommendedList.innerHTML = '';
+      filtered.forEach(act => {
+        const li = document.createElement('li');
+        li.className = 'recommended-item';
+        li.tabIndex = 0;
+        li.innerHTML = `
+          <img src="${act.image}" alt="${act.name}" />
+          <div class="recommended-text">
+            <h5>${act.name}</h5>
+            <p>${act.description}</p>
+            <div class="btn-group">
+              <button class="btn-primary small-btn" data-id="${act.id}" data-action="planla">Tarih Planla</button>
+              <button class="btn-secondary small-btn" data-id="${act.id}" data-action="kayit">Kayıt Ol</button>
+            </div>
+          </div>
+        `;
+        recommendedList.appendChild(li);
+      });
+    });
+
+    recommendedList.addEventListener('click', e => {
+      if(e.target.tagName === 'BUTTON') {
+        const id = e.target.getAttribute('data-id');
+        const action = e.target.getAttribute('data-action');
+        selectedActivity = activities.find(a => a.id === id);
+        if(!selectedActivity) return;
+
+        activityNameTitle.textContent = selectedActivity.name;
+        activityImage.src = selectedActivity.image;
+        activityImage.alt = selectedActivity.name;
+        activityDescription.textContent = selectedActivity.description;
+
+        activityDetailSection.style.display = 'block';
+        activityDetailSection.scrollIntoView({behavior: 'smooth'});
+        dateForm.reset();
+        registrationForm.reset();
+
+        if(action === 'planla') {
+          dateForm.style.display = 'block';
+          registrationForm.style.display = 'none';
+        } else {
+          registrationForm.style.display = 'block';
+          dateForm.style.display = 'none';
+        }
+      }
+    });
+
+    dateForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const startDate = dateForm.startDate.value;
+      const endDate = dateForm.endDate.value;
+      if(new Date(startDate) >= new Date(endDate)) {
+        alert('Bitiş tarihi, başlangıç tarihinden sonra olmalıdır.');
+        return;
+      }
+      alert(`"${selectedActivity.name}" aktivitesi için tarih planınız kaydedildi:\n${startDate} - ${endDate}`);
+      dateForm.reset();
+    });
+
+    registrationForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const fullName = registrationForm.fullName.value.trim();
+      const email = registrationForm.email.value.trim();
+      if(!fullName || !email) {
+        alert('Lütfen adınızı ve e-posta adresinizi giriniz.');
+        return;
+      }
+      alert(`Sayın ${fullName}, "${selectedActivity.name}" aktivitesine kayıt işleminiz başarıyla tamamlanmıştır.`);
+      registrationForm.reset();
+    });
+  });
+  </script>
+
+</body>
+</html>
